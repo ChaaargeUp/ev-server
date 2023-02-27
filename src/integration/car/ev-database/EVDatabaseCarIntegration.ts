@@ -30,7 +30,9 @@ export default class EVDatabaseCarIntegration extends CarIntegration {
       });
       return;
     }
-    const response = await this.axiosInstance.get(evDatabaseConfig.url + '/' + evDatabaseConfig.key);
+    const evDatabaseString = evDatabaseConfig.key ? evDatabaseConfig.url + '/' + evDatabaseConfig.key : evDatabaseConfig.url;
+    const response = await this.axiosInstance.get(evDatabaseString);
+    
     const carCatalogs: CarCatalog[] = [];
     // Build result
     for (const data of response.data) {

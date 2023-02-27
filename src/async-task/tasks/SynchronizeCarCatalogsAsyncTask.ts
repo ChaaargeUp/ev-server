@@ -12,6 +12,7 @@ const MODULE_NAME = 'SynchronizeCarCatalogsAsyncTask';
 export default class SynchronizeCarCatalogsAsyncTask extends AbstractAsyncTask {
   protected async executeAsyncTask(): Promise<void> {
     const syncCarCatalogsLock = await LockingHelper.acquireSyncCarCatalogsLock(Constants.DEFAULT_TENANT_ID);
+    console.log("test ");
     if (syncCarCatalogsLock) {
       try {
         const carDatabaseImpl = CarFactory.getCarImpl();
