@@ -16,7 +16,6 @@ export default abstract class CarIntegration {
     };
     // Get the cars
     const externalCars = await this.getCarCatalogs();
-    console.log("External Cars: ", externalCars);
     for (const externalCar of externalCars) {
       try {
         const internalCar = await CarStorage.getCarCatalog(externalCar.id);

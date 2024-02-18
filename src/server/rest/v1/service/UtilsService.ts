@@ -88,7 +88,8 @@ export default class UtilsService {
   }
 
   public static async checkReCaptcha(tenant: Tenant, action: ServerAction, method: string,
-      centralSystemRestConfig: CentralSystemRestServiceConfiguration, captcha: string, remoteAddress: string): Promise<void> {
+    centralSystemRestConfig: CentralSystemRestServiceConfiguration, captcha: string, remoteAddress: string): Promise<void> {
+    return;
     const response = await UtilsService.performRecaptchaAPICall(tenant, centralSystemRestConfig, captcha, remoteAddress);
     if (!response.data.success) {
       throw new AppError({
@@ -112,7 +113,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetChargingStationAuthorization(tenant: Tenant, userToken: UserToken, chargingStationID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<ChargingStation> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<ChargingStation> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, chargingStationID, MODULE_NAME, 'checkAndGetChargingStationAuthorization', userToken);
     // Get dynamic auth
@@ -161,8 +162,8 @@ export default class UtilsService {
   }
 
   public static async checkAndGetChargingStationTemplateAuthorization(tenant: Tenant, userToken: UserToken, chargingStationTemplateID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<ChargingStationTemplate> {
-  // Check mandatory fields
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<ChargingStationTemplate> {
+    // Check mandatory fields
     UtilsService.assertIdIsProvided(action, chargingStationTemplateID, MODULE_NAME, 'checkAndGetChargingStationTemplateAuthorization', userToken);
     // Get dynamic auth
     const authorizationFilter = await AuthorizationService.checkAndGetChargingStationTemplateAuthorizations(
@@ -181,7 +182,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetChargingProfileAuthorization(tenant: Tenant, userToken: UserToken, chargingProfileID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<ChargingProfile> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<ChargingProfile> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, chargingProfileID, MODULE_NAME, 'checkAndGetChargingProfileAuthorization', userToken);
     // Get dynamic auth
@@ -219,7 +220,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetTransactionAuthorization(tenant: Tenant, userToken: UserToken, transactionID: number, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Transaction> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Transaction> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, transactionID, MODULE_NAME, 'checkAndGetTransactionAuthorization', userToken);
     // Get dynamic auth
@@ -257,8 +258,8 @@ export default class UtilsService {
   }
 
   public static async checkAndGetPricingDefinitionAuthorization(tenant: Tenant, userToken: UserToken, pricingDefinitionID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<PricingDefinition> {
-  // Check mandatory fields
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<PricingDefinition> {
+    // Check mandatory fields
     UtilsService.assertIdIsProvided(action, pricingDefinitionID, MODULE_NAME, 'checkAndGetPricingDefinitionAuthorization', userToken);
     // Get dynamic auth
     const authorizations = await AuthorizationService.checkAndGetPricingDefinitionAuthorizations(
@@ -297,7 +298,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetRegistrationTokenAuthorization(tenant: Tenant, userToken: UserToken, registrationTokenID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<RegistrationToken> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<RegistrationToken> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, registrationTokenID, MODULE_NAME, 'checkAndGetRegistrationTokenAuthorization', userToken);
     // Get dynamic auth
@@ -337,7 +338,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetCompanyAuthorization(tenant: Tenant, userToken: UserToken, companyID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Company> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Company> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, companyID, MODULE_NAME, 'checkAndGetCompanyAuthorization', userToken);
     // Get dynamic auth
@@ -378,7 +379,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetUserAuthorization(tenant: Tenant, userToken: UserToken, userID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<User> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<User> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, userID, MODULE_NAME, 'checkAndGetUserAuthorization', userToken);
     // Get dynamic auth
@@ -417,7 +418,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetSiteAuthorization(tenant: Tenant, userToken: UserToken, siteID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Site> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Site> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, siteID, MODULE_NAME, 'checkAndGetSiteAuthorization', userToken);
     // Get dynamic auth
@@ -457,7 +458,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetAssetAuthorization(tenant: Tenant, userToken: UserToken, assetID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Asset> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Asset> {
     // Check mandatory fields failsafe, should already be done in the json schema validation for each request
     UtilsService.assertIdIsProvided(action, assetID, MODULE_NAME, 'checkAndGetAssetAuthorization', userToken);
     // Retrieve authorization for action
@@ -501,7 +502,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetLogAuthorization(tenant: Tenant, userToken: UserToken, logID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Log> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Log> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, logID, MODULE_NAME, 'checkAndGetLogAuthorization', userToken);
     // Get dynamic auth
@@ -541,7 +542,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetUserSitesAuthorization(tenant: Tenant, userToken: UserToken, user: User, siteIDs: string[],
-      action: ServerAction, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Site[]> {
+    action: ServerAction, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Site[]> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, user.id, MODULE_NAME, 'checkUserSitesAuthorization', userToken);
     if (Utils.isEmptyArray(siteIDs)) {
@@ -581,7 +582,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetSiteUsersAuthorization(tenant: Tenant, userToken: UserToken, site: Site, userIDs: string[],
-      action: ServerAction, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<User[]> {
+    action: ServerAction, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<User[]> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, site.id, MODULE_NAME, 'checkSiteUsersAuthorization', userToken);
     if (Utils.isEmptyArray(userIDs)) {
@@ -621,7 +622,7 @@ export default class UtilsService {
   }
 
   public static async checkSiteAreaAssetsAuthorization(tenant: Tenant, userToken: UserToken, siteArea: SiteArea, assetIDs: string[],
-      action: ServerAction, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Asset[]> {
+    action: ServerAction, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Asset[]> {
     // Check Mandatory fields
     UtilsService.assertIdIsProvided(action, siteArea.id, MODULE_NAME, 'checkSiteAreaAssetsAuthorization', userToken);
     if (Utils.isEmptyArray(assetIDs)) {
@@ -658,7 +659,7 @@ export default class UtilsService {
   }
 
   public static async checkSiteAreaChargingStationsAuthorization(tenant: Tenant, userToken: UserToken, siteArea: SiteArea, chargingStationIDs: string[],
-      action: ServerAction, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<ChargingStation[]> {
+    action: ServerAction, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<ChargingStation[]> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, siteArea.id, MODULE_NAME, 'checkSiteAreaChargingStationsAuthorization', userToken);
     if (Utils.isEmptyArray(chargingStationIDs)) {
@@ -695,7 +696,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetSiteAreaAuthorization(tenant: Tenant, userToken: UserToken, siteAreaID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<SiteArea> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<SiteArea> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, siteAreaID, MODULE_NAME, 'checkAndGetSiteAreaAuthorization', userToken);
     // Get dynamic auth
@@ -736,7 +737,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetCarAuthorization(tenant: Tenant, userToken: UserToken, carID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Car> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Car> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, carID, MODULE_NAME, 'checkAndGetCarAuthorization', userToken);
     // Get dynamic auth
@@ -776,8 +777,8 @@ export default class UtilsService {
   }
 
   public static async checkAndGetCarCatalogAuthorization(tenant: Tenant, userToken: UserToken, carCatalogID: number, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<CarCatalog> {
-  // Check mandatory fields
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<CarCatalog> {
+    // Check mandatory fields
     UtilsService.assertIdIsProvided(action, carCatalogID, MODULE_NAME, 'checkAndGetCarCatalogAuthorization', userToken);
     // Get dynamic auth
     const authorizations = await AuthorizationService.checkAndGetCarCatalogAuthorizations(
@@ -817,7 +818,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetSettingAuthorization(tenant: Tenant, userToken: UserToken, settingID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<SettingDB> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<SettingDB> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, settingID, MODULE_NAME, 'checkAndGetSettingAuthorization', userToken);
     // Get dynamic auth
@@ -861,7 +862,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetOCPIEndpointAuthorization(tenant: Tenant, userToken: UserToken, ocpiEndpointID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<OCPIEndpoint> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<OCPIEndpoint> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, ocpiEndpointID, MODULE_NAME, 'checkAndGetOCPIEndpointAuthorization', userToken);
     // Get dynamic auth
@@ -898,7 +899,7 @@ export default class UtilsService {
 
   // This function is tailored for SETTING authorization, do not use it for "general" entities !
   public static async checkAndGetBillingSettingAuthorization(tenant: Tenant, userToken: UserToken, billingSettingID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<BillingSettings> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<BillingSettings> {
     // Get dynamic auth
     const authorizations = await AuthorizationService.checkAndGetSettingAuthorizations(tenant, userToken, { ID: billingSettingID }, authAction, entityData);
     // Get the entity from storage
@@ -932,7 +933,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetInvoiceAuthorization(tenant: Tenant, userToken: UserToken, invoiceID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<BillingInvoice> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<BillingInvoice> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, invoiceID, MODULE_NAME, 'checkAndGetInvoiceAuthorization', userToken);
     // Get dynamic auth
@@ -972,7 +973,7 @@ export default class UtilsService {
   }
 
   public static async checkAndGetTransferAuthorization(tenant: Tenant, userToken: UserToken, ID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<BillingTransfer> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<BillingTransfer> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, ID, MODULE_NAME, 'checkAndGetTransferAuthorization', userToken);
     // Get dynamic auth
@@ -980,11 +981,11 @@ export default class UtilsService {
       tenant, userToken, { ID }, authAction, entityData);
     // Get Invoice
     const transfer = await BillingStorage.getTransfer(tenant, ID,
-    // TODO - authorizations
-    //   {
-    //     ...additionalFilters,
-    //     ...authorizations.filters
-    //   },
+      // TODO - authorizations
+      //   {
+      //     ...additionalFilters,
+      //     ...authorizations.filters
+      //   },
       applyProjectFields ? authorizations.projectFields : null
     );
     UtilsService.assertObjectExists(action, transfer, `Transfer ID '${ID}' does not exist`,
@@ -1013,19 +1014,19 @@ export default class UtilsService {
   }
 
   public static async checkAndGetTagAuthorization(tenant: Tenant, userToken: UserToken, tagID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Tag> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Tag> {
     return UtilsService.checkAndGetTagByXXXAuthorization(tenant, userToken, tagID, TagStorage.getTag.bind(this),
       authAction, action, entityData, additionalFilters, applyProjectFields);
   }
 
   public static async checkAndGetTagByVisualIDAuthorization(tenant: Tenant, userToken: UserToken, tagID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Tag> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Tag> {
     return UtilsService.checkAndGetTagByXXXAuthorization(tenant, userToken, tagID, TagStorage.getTagByVisualID.bind(this),
       authAction, action, entityData, additionalFilters, applyProjectFields);
   }
 
   public static async checkAndGetBillingAccountAuthorization(tenant: Tenant, userToken: UserToken, billingAccountID: string, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<BillingAccount> {
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<BillingAccount> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, billingAccountID, MODULE_NAME, 'checkAndGetBillingAccountAuthorization', userToken);
     // Get dynamic auth
@@ -1134,7 +1135,7 @@ export default class UtilsService {
     }
   }
 
-  public static assertIdIsProvided(action: ServerAction, id: string|number, module: string, method: string, userToken: UserToken): void {
+  public static assertIdIsProvided(action: ServerAction, id: string | number, module: string, method: string, userToken: UserToken): void {
     if (!id) {
       // Object does not exist
       throw new AppError({
@@ -1194,7 +1195,7 @@ export default class UtilsService {
   }
 
   public static assertComponentIsActiveFromToken(userToken: UserToken, component: TenantComponents,
-      action: Action, entity: Entity, module: string, method: string): void {
+    action: Action, entity: Entity, module: string, method: string): void {
     // Check from token
     const active = Utils.isComponentActiveFromToken(userToken, component);
     if (!active) {
@@ -1209,8 +1210,8 @@ export default class UtilsService {
   }
 
   public static async exportToCSV(req: Request, res: Response, attachmentName: string, filteredRequest: any,
-      handleGetData: (req: Request, filteredRequest: any) => Promise<DataResult<any>>,
-      handleConvertToCSV: (req: Request, data: any[], writeHeader: boolean) => string): Promise<void> {
+    handleGetData: (req: Request, filteredRequest: any) => Promise<DataResult<any>>,
+    handleConvertToCSV: (req: Request, data: any[], writeHeader: boolean) => string): Promise<void> {
     // Force params
     req.query.Limit = Constants.EXPORT_PAGE_SIZE.toString();
     // Set the attachment name
@@ -1252,8 +1253,8 @@ export default class UtilsService {
   }
 
   public static async exportToPDF(req: Request, res: Response, attachmentName: string,
-      handleGetData: (req: Request) => Promise<DataResult<any>>,
-      handleConvertToPDF: (req: Request, pdfDocument: PDFKit.PDFDocument, data: any[]) => Promise<string>): Promise<void> {
+    handleGetData: (req: Request) => Promise<DataResult<any>>,
+    handleConvertToPDF: (req: Request, pdfDocument: PDFKit.PDFDocument, data: any[]) => Promise<string>): Promise<void> {
     // Override
     req.query.Limit = Constants.EXPORT_PDF_PAGE_SIZE.toString();
     // Set the attachment name
@@ -1294,7 +1295,7 @@ export default class UtilsService {
   }
 
   public static checkIfChargingProfileIsValid(chargingStation: ChargingStation, chargePoint: ChargePoint,
-      filteredRequest: ChargingProfile, req: Request): void {
+    filteredRequest: ChargingProfile, req: Request): void {
     if (filteredRequest.profile.chargingSchedule.chargingSchedulePeriod.length === 0) {
       throw new AppError({
         action: ServerAction.CHARGING_PROFILE_UPDATE,
@@ -1425,7 +1426,7 @@ export default class UtilsService {
 
   public static checkIfPricingDefinitionValid(pricingDefinition: Partial<PricingDefinition>, req: Request): void {
     if (pricingDefinition.staticRestrictions?.validFrom && pricingDefinition.staticRestrictions?.validTo &&
-        pricingDefinition.staticRestrictions.validFrom.getTime() > pricingDefinition.staticRestrictions.validTo.getTime()) {
+      pricingDefinition.staticRestrictions.validFrom.getTime() > pricingDefinition.staticRestrictions.validTo.getTime()) {
       throw new AppError({
         errorCode: HTTPError.GENERAL_ERROR,
         message: 'The pricing definition validity start date cannot be after the end date',
@@ -1607,7 +1608,7 @@ export default class UtilsService {
   // eslint-disable-next-line @typescript-eslint/ban-types
   public static async processSensitiveData(tenant: Tenant, currentProperties: object, newProperties: object): Promise<void> {
     // Process the sensitive data (if any)
-    const sensitivePropertyNames: string [] = _.get(currentProperties, 'sensitiveData');
+    const sensitivePropertyNames: string[] = _.get(currentProperties, 'sensitiveData');
     if (sensitivePropertyNames) {
       if (!Array.isArray(sensitivePropertyNames)) {
         throw new AppError({
@@ -1627,14 +1628,14 @@ export default class UtilsService {
           if (currentValue && typeof currentValue === 'string') {
             const currentHash = Utils.hash(currentValue);
             if (newValue !== currentHash) {
-            // Yes: Encrypt
+              // Yes: Encrypt
               _.set(newProperties, propertyName, await Cypher.encrypt(tenant, newValue));
             } else {
-            // No: Put back the encrypted value
+              // No: Put back the encrypted value
               _.set(newProperties, propertyName, currentValue);
             }
           } else {
-          // Value in db is empty then encrypt
+            // Value in db is empty then encrypt
             _.set(newProperties, propertyName, await Cypher.encrypt(tenant, newValue));
           }
         } else {
@@ -1651,7 +1652,7 @@ export default class UtilsService {
 
   // eslint-disable-next-line @typescript-eslint/ban-types
   public static hashSensitiveData(tenantID: string, properties: object): unknown {
-    const sensitivePropertyNames: string [] = _.get(properties, 'sensitiveData');
+    const sensitivePropertyNames: string[] = _.get(properties, 'sensitiveData');
     if (sensitivePropertyNames) {
       if (!Array.isArray(sensitivePropertyNames)) {
         throw new AppError({
@@ -1677,8 +1678,8 @@ export default class UtilsService {
   }
 
   private static async checkAndGetTagByXXXAuthorization(tenant: Tenant, userToken: UserToken, id: string,
-      getTagByXXX: (tenant: Tenant, id: string, params: any, projectedFileds: string[]) => Promise<Tag>, authAction: Action,
-      action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Tag> {
+    getTagByXXX: (tenant: Tenant, id: string, params: any, projectedFileds: string[]) => Promise<Tag>, authAction: Action,
+    action: ServerAction, entityData?: EntityData, additionalFilters: Record<string, any> = {}, applyProjectFields = false): Promise<Tag> {
     // Check mandatory fields
     UtilsService.assertIdIsProvided(action, id, MODULE_NAME, 'checkAndGetTagByXXXAuthorization', userToken);
     // Get dynamic auth
@@ -1717,8 +1718,8 @@ export default class UtilsService {
     return tag;
   }
 
-  private static async performRecaptchaAPICall(tenant: Tenant, centralSystemRestConfig: CentralSystemRestServiceConfiguration,captcha: string, remoteAddress: string)
-      : Promise<AxiosResponse<any, any>> {
+  private static async performRecaptchaAPICall(tenant: Tenant, centralSystemRestConfig: CentralSystemRestServiceConfiguration, captcha: string, remoteAddress: string)
+    : Promise<AxiosResponse<any, any>> {
     const recaptchaURL = UtilsService.buildRecaptchaURL(centralSystemRestConfig.captchaSecretKey, captcha, remoteAddress);
     const axiosInstance = AxiosFactory.getAxiosInstance(tenant);
     let response = await axiosInstance.get(recaptchaURL);

@@ -25,7 +25,8 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
           }
         },
       },
-      { resource: Entity.CHARGING_STATION_TEMPLATE, action: [Action.LIST],
+      {
+        resource: Entity.CHARGING_STATION_TEMPLATE, action: [Action.LIST],
         attributes: [
           'id', 'createdOn', 'createdBy.name', 'createdBy.firstName', 'lastChangedOn', 'lastChangedBy.name', 'lastChangedBy.firstName',
           'template.chargePointVendor', 'template.extraFilters.chargePointModel', 'template.extraFilters.chargeBoxSerialNumber'
@@ -135,7 +136,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
   admin: {
     grants: [
       {
-        resource: Entity.TENANT, action:Action.READ,
+        resource: Entity.TENANT, action: Action.READ,
         attributes: ['id', 'name', 'email', 'logo', 'address']
       },
       {
@@ -291,7 +292,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
         attributes: [
           'id', 'chargingStationID', 'chargePointID', 'connectorID',
           'chargingStation.id', 'chargingStation.siteID', 'chargingStation.siteAreaID',
-          'chargingStation.siteArea.id', 'chargingStation.siteArea.name', 'chargingStation.siteArea.maximumPower','chargingStation.siteArea.siteID',
+          'chargingStation.siteArea.id', 'chargingStation.siteArea.name', 'chargingStation.siteArea.maximumPower', 'chargingStation.siteArea.siteID',
           'profile.chargingProfileKind', 'profile.chargingProfilePurpose', 'profile.stackLevel', 'profile.chargingSchedule'
         ]
       },
@@ -446,9 +447,9 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
           'connectors.currentTransactionID', 'connectors.currentTotalInactivitySecs', 'connectors.currentTagID', 'lastReboot', 'createdOn',
           'connectors.user.id', 'connectors.user.name', 'connectors.user.firstName', 'connectors.user.email',
           'ocpiData.evses.capabilities',
-          'chargePoints.chargePointID','chargePoints.currentType','chargePoints.voltage','chargePoints.amperage','chargePoints.numberOfConnectedPhase',
-          'chargePoints.cannotChargeInParallel','chargePoints.sharePowerToAllConnectors','chargePoints.excludeFromPowerLimitation','chargePoints.ocppParamForPowerLimitation',
-          'chargePoints.power','chargePoints.efficiency','chargePoints.connectorIDs'
+          'chargePoints.chargePointID', 'chargePoints.currentType', 'chargePoints.voltage', 'chargePoints.amperage', 'chargePoints.numberOfConnectedPhase',
+          'chargePoints.cannotChargeInParallel', 'chargePoints.sharePowerToAllConnectors', 'chargePoints.excludeFromPowerLimitation', 'chargePoints.ocppParamForPowerLimitation',
+          'chargePoints.power', 'chargePoints.efficiency', 'chargePoints.connectorIDs'
         ]
       },
       {
@@ -490,7 +491,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
         action: [
           Action.RESET, Action.CLEAR_CACHE, Action.CHANGE_AVAILABILITY, Action.UPDATE, Action.DELETE, Action.GENERATE_QR,
           Action.GET_CONFIGURATION, Action.CHANGE_CONFIGURATION, Action.STOP_TRANSACTION, Action.START_TRANSACTION,
-          Action.AUTHORIZE, Action.SET_CHARGING_PROFILE,Action.GET_COMPOSITE_SCHEDULE, Action.CLEAR_CHARGING_PROFILE, Action.GET_DIAGNOSTICS, Action.UPDATE_FIRMWARE,
+          Action.AUTHORIZE, Action.SET_CHARGING_PROFILE, Action.GET_COMPOSITE_SCHEDULE, Action.CLEAR_CHARGING_PROFILE, Action.GET_DIAGNOSTICS, Action.UPDATE_FIRMWARE,
           Action.EXPORT_OCPP_PARAMS, Action.TRIGGER_DATA_TRANSFER, Action.UPDATE_OCPP_PARAMS, Action.LIMIT_POWER, Action.DELETE_CHARGING_PROFILE, Action.GET_OCPP_PARAMS,
           Action.UPDATE_CHARGING_PROFILE, Action.GET_CONNECTOR_QR_CODE, Action.MAINTAIN_PRICING_DEFINITIONS
         ],
@@ -872,7 +873,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
           'id', 'status', 'createdOn', 'sessionCounter', 'collectedFunds', 'collectedFlatFees', 'collectedFees', 'totalConsumptionWh', 'totalDurationSecs',
           'transferAmount', 'accountID', 'transferExternalID',
           'account.companyName', 'account.businessOwnerID', 'account.accountExternalID', 'businessOwner.name', 'businessOwner.firstName',
-          'platformFeeData.feeAmount', 'platformFeeData.feeTaxAmount', 'currency', 'invoice.documentNumber','invoice.invoiceID','invoice.userID', 'invoice.totalAmount'
+          'platformFeeData.feeAmount', 'platformFeeData.feeTaxAmount', 'currency', 'invoice.documentNumber', 'invoice.invoiceID', 'invoice.userID', 'invoice.totalAmount'
         ]
       },
       { resource: Entity.TAX, action: [Action.LIST] },
@@ -887,7 +888,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
       },
       {
         resource: Entity.ASSET, action: [Action.CREATE, Action.READ,
-          Action.CHECK_CONNECTION, Action.CREATE_CONSUMPTION]
+        Action.CHECK_CONNECTION, Action.CREATE_CONSUMPTION]
       },
       {
         resource: Entity.ASSET, action: Action.READ_CONSUMPTION,
@@ -1348,9 +1349,9 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
           'connectors.currentTransactionID', 'connectors.currentTotalInactivitySecs', 'lastReboot', 'createdOn', 'companyID',
           'connectors.user.id', 'connectors.user.name', 'connectors.user.firstName', 'connectors.user.email', 'connectors.currentTagID',
           'ocpiData.evses.capabilities',
-          'chargePoints.chargePointID','chargePoints.currentType','chargePoints.voltage','chargePoints.amperage','chargePoints.numberOfConnectedPhase',
-          'chargePoints.cannotChargeInParallel','chargePoints.sharePowerToAllConnectors','chargePoints.excludeFromPowerLimitation','chargePoints.ocppParamForPowerLimitation',
-          'chargePoints.power','chargePoints.efficiency','chargePoints.connectorIDs'
+          'chargePoints.chargePointID', 'chargePoints.currentType', 'chargePoints.voltage', 'chargePoints.amperage', 'chargePoints.numberOfConnectedPhase',
+          'chargePoints.cannotChargeInParallel', 'chargePoints.sharePowerToAllConnectors', 'chargePoints.excludeFromPowerLimitation', 'chargePoints.ocppParamForPowerLimitation',
+          'chargePoints.power', 'chargePoints.efficiency', 'chargePoints.connectorIDs'
         ]
       },
       {
@@ -1363,10 +1364,10 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
           }
         },
         attributes: [
-          'id','issuer','public','siteAreaID','lastSeen','inactive','forceInactive','manualConfiguration','voltage','coordinates','chargingStationURL', 'forceInactive',
-          'maximumPower', 'masterSlave', 'chargePoints.chargePointID','chargePoints.currentType','chargePoints.voltage','chargePoints.amperage','chargePoints.numberOfConnectedPhase',
-          'chargePoints.cannotChargeInParallel','chargePoints.sharePowerToAllConnectors','chargePoints.excludeFromPowerLimitation','chargePoints.ocppParamForPowerLimitation',
-          'chargePoints.power','chargePoints.efficiency','chargePoints.connectorIDs',
+          'id', 'issuer', 'public', 'siteAreaID', 'lastSeen', 'inactive', 'forceInactive', 'manualConfiguration', 'voltage', 'coordinates', 'chargingStationURL', 'forceInactive',
+          'maximumPower', 'masterSlave', 'chargePoints.chargePointID', 'chargePoints.currentType', 'chargePoints.voltage', 'chargePoints.amperage', 'chargePoints.numberOfConnectedPhase',
+          'chargePoints.cannotChargeInParallel', 'chargePoints.sharePowerToAllConnectors', 'chargePoints.excludeFromPowerLimitation', 'chargePoints.ocppParamForPowerLimitation',
+          'chargePoints.power', 'chargePoints.efficiency', 'chargePoints.connectorIDs',
           'connectors.status', 'connectors.type', 'connectors.power', 'connectors.errorCode', 'connectors.connectorId', 'connectors.currentTotalConsumptionWh',
           'connectors.currentInstantWatts', 'connectors.currentStateOfCharge', 'connectors.info', 'connectors.vendorErrorCode', 'connectors.currentTransactionID',
           'connectors.currentTotalInactivitySecs', 'connectors.phaseAssignmentToGrid', 'connectors.chargePointID', 'connectors.tariffID', 'connectors.currentTransactionDate', 'connectors.currentTagID',
@@ -1530,7 +1531,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
           'currentTotalDurationSecs', 'currentTotalInactivitySecs', 'currentInstantWatts', 'currentTotalConsumptionWh', 'currentStateOfCharge',
           'currentCumulatedPrice', 'currentInactivityStatus', 'roundedPrice', 'price', 'priceUnit', 'ocpi', 'ocpiWithCdr',
           'stop.roundedPrice', 'stop.price', 'stop.priceUnit', 'stop.inactivityStatus', 'stop.stateOfCharge', 'stop.timestamp', 'stop.totalConsumptionWh',
-          'stop.totalDurationSecs', 'stop.totalInactivitySecs', 'stop.extraInactivitySecs', 'stop.meterStop', 'stop.tagID','stop.tag.visualID', 'stop.reason',
+          'stop.totalDurationSecs', 'stop.totalInactivitySecs', 'stop.extraInactivitySecs', 'stop.meterStop', 'stop.tagID', 'stop.tag.visualID', 'stop.reason',
           'carCatalog.vehicleMake', 'carCatalog.vehicleModel', 'carCatalog.vehicleModelVersion',
           'car.licensePlate',
           'billingData.stop.invoiceNumber',
@@ -1556,7 +1557,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
           'stop.totalDurationSecs', 'stop.totalInactivitySecs', 'stop.extraInactivitySecs', 'stop.pricingSource', 'stop.signedData',
           'stop.tagID', 'stop.tag.visualID', 'stop.tag.description', 'billingData.stop.status', 'billingData.stop.invoiceID', 'billingData.stop.invoiceItem',
           'billingData.stop.invoiceStatus', 'billingData.stop.invoiceNumber',
-          'carID' ,'carCatalogID', 'carCatalog.vehicleMake', 'carCatalog.vehicleModel', 'carCatalog.vehicleModelVersion', 'car.licensePlate',
+          'carID', 'carCatalogID', 'carCatalog.vehicleMake', 'carCatalog.vehicleModel', 'carCatalog.vehicleModelVersion', 'car.licensePlate',
           'pricingModel'
         ]
       },
@@ -1886,9 +1887,9 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
           'connectors.currentTotalConsumptionWh', 'connectors.currentInstantWatts', 'connectors.currentStateOfCharge', 'connectors.info', 'connectors.vendorErrorCode',
           'connectors.currentTransactionID', 'connectors.currentTotalInactivitySecs', 'lastReboot', 'createdOn', 'companyID',
           'ocpiData.evses.capabilities',
-          'chargePoints.chargePointID','chargePoints.currentType','chargePoints.voltage','chargePoints.amperage','chargePoints.numberOfConnectedPhase',
-          'chargePoints.cannotChargeInParallel','chargePoints.sharePowerToAllConnectors','chargePoints.excludeFromPowerLimitation','chargePoints.ocppParamForPowerLimitation',
-          'chargePoints.power','chargePoints.efficiency','chargePoints.connectorIDs'
+          'chargePoints.chargePointID', 'chargePoints.currentType', 'chargePoints.voltage', 'chargePoints.amperage', 'chargePoints.numberOfConnectedPhase',
+          'chargePoints.cannotChargeInParallel', 'chargePoints.sharePowerToAllConnectors', 'chargePoints.excludeFromPowerLimitation', 'chargePoints.ocppParamForPowerLimitation',
+          'chargePoints.power', 'chargePoints.efficiency', 'chargePoints.connectorIDs'
         ]
       },
       {
@@ -1902,12 +1903,12 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
         },
         attributes: [
           'id', 'issuer', 'public', 'siteAreaID', 'lastSeen', 'inactive', 'forceInactive', 'manualConfiguration', 'voltage', 'coordinates', 'chargingStationURL',
-          'forceInactive', 'maximumPower', 'masterSlave', 'chargePoints.chargePointID','chargePoints.currentType','chargePoints.voltage','chargePoints.amperage','chargePoints.numberOfConnectedPhase',
-          'chargePoints.cannotChargeInParallel','chargePoints.sharePowerToAllConnectors','chargePoints.excludeFromPowerLimitation','chargePoints.ocppParamForPowerLimitation',
-          'chargePoints.power','chargePoints.efficiency','chargePoints.connectorIDs',
+          'forceInactive', 'maximumPower', 'masterSlave', 'chargePoints.chargePointID', 'chargePoints.currentType', 'chargePoints.voltage', 'chargePoints.amperage', 'chargePoints.numberOfConnectedPhase',
+          'chargePoints.cannotChargeInParallel', 'chargePoints.sharePowerToAllConnectors', 'chargePoints.excludeFromPowerLimitation', 'chargePoints.ocppParamForPowerLimitation',
+          'chargePoints.power', 'chargePoints.efficiency', 'chargePoints.connectorIDs',
           'connectors.status', 'connectors.type', 'connectors.power', 'connectors.errorCode', 'connectors.connectorId', 'connectors.currentTotalConsumptionWh',
           'connectors.currentInstantWatts', 'connectors.currentStateOfCharge', 'connectors.info', 'connectors.vendorErrorCode', 'connectors.currentTransactionID',
-          'connectors.currentTotalInactivitySecs', 'connectors.phaseAssignmentToGrid', 'connectors.chargePointID', 'connectors.tariffID','connectors.currentTransactionDate', 'connectors.currentTagID',
+          'connectors.currentTotalInactivitySecs', 'connectors.phaseAssignmentToGrid', 'connectors.chargePointID', 'connectors.tariffID', 'connectors.currentTransactionDate', 'connectors.currentTagID',
           'ocpiData.evses.capabilities',
           'siteArea', 'site', 'siteID',
         ]
@@ -1937,7 +1938,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
           'currentTotalDurationSecs', 'currentTotalInactivitySecs', 'currentInstantWatts', 'currentTotalConsumptionWh', 'currentStateOfCharge',
           'currentCumulatedPrice', 'currentInactivityStatus', 'roundedPrice', 'price', 'priceUnit', 'ocpi', 'ocpiWithCdr',
           'stop.roundedPrice', 'stop.price', 'stop.priceUnit', 'stop.inactivityStatus', 'stop.stateOfCharge', 'stop.timestamp', 'stop.totalConsumptionWh',
-          'stop.totalDurationSecs', 'stop.totalInactivitySecs', 'stop.extraInactivitySecs', 'stop.meterStop', 'stop.tagID','stop.tag.visualID', 'stop.reason',
+          'stop.totalDurationSecs', 'stop.totalInactivitySecs', 'stop.extraInactivitySecs', 'stop.meterStop', 'stop.tagID', 'stop.tag.visualID', 'stop.reason',
           'billingData.stop.invoiceNumber',
           'tagID', 'tag.visualID', 'tag.description',
           'site.name', 'siteArea.name', 'company.name',
@@ -1964,7 +1965,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
           'stop.totalDurationSecs', 'stop.totalInactivitySecs', 'stop.extraInactivitySecs', 'stop.pricingSource', 'stop.signedData',
           'stop.tagID', 'stop.tag.visualID', 'stop.tag.description', 'billingData.stop.status', 'billingData.stop.invoiceID', 'billingData.stop.invoiceItem',
           'billingData.stop.invoiceStatus', 'billingData.stop.invoiceNumber',
-          'carID' ,'carCatalogID', 'carCatalog.vehicleMake', 'carCatalog.vehicleModel', 'carCatalog.vehicleModelVersion', 'car.licensePlate',
+          'carID', 'carCatalogID', 'carCatalog.vehicleMake', 'carCatalog.vehicleModel', 'carCatalog.vehicleModelVersion', 'car.licensePlate',
           'pricingModel'
         ]
       },
@@ -2154,7 +2155,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
           'address.department', 'address.region', 'address.country', 'address.coordinates'
         ],
       },
-      {
+      /*{
         resource: Entity.USER, action: Action.CREATE,
         condition: {
           Fn: 'custom:dynamicAuthorizations',
@@ -2196,7 +2197,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
             filters: ['-OwnUser', 'SitesAdmin', 'LocalIssuer']
           }
         }
-      },
+      },*/
       {
         resource: Entity.USER_SITE, action: [Action.ASSIGN_SITES_TO_USER, Action.UNASSIGN_SITES_FROM_USER, Action.READ, Action.UPDATE, Action.LIST],
         condition: {
@@ -2402,7 +2403,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
           'startedAt', 'instantWatts', 'instantAmps', 'limitWatts', 'limitAmps', 'endedAt', 'stateOfCharge'
         ],
       },
-      {
+      /*{
         resource: Entity.CAR, action: Action.LIST,
         condition: {
           Fn: 'custom:dynamicAuthorizations',
@@ -2463,7 +2464,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
             filters: ['SitesAdmin']
           }
         }
-      },
+      },*/
       {
         resource: Entity.CHARGING_STATION, action: Action.LIST,
         condition: {
@@ -2480,9 +2481,9 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
           'connectors.currentTotalConsumptionWh', 'connectors.currentInstantWatts', 'connectors.currentStateOfCharge', 'connectors.info', 'connectors.vendorErrorCode',
           'connectors.currentTransactionID', 'connectors.currentTotalInactivitySecs', 'lastReboot', 'createdOn', 'companyID',
           'ocpiData.evses.capabilities',
-          'chargePoints.chargePointID','chargePoints.currentType','chargePoints.voltage','chargePoints.amperage','chargePoints.numberOfConnectedPhase',
-          'chargePoints.cannotChargeInParallel','chargePoints.sharePowerToAllConnectors','chargePoints.excludeFromPowerLimitation','chargePoints.ocppParamForPowerLimitation',
-          'chargePoints.power','chargePoints.efficiency','chargePoints.connectorIDs'
+          'chargePoints.chargePointID', 'chargePoints.currentType', 'chargePoints.voltage', 'chargePoints.amperage', 'chargePoints.numberOfConnectedPhase',
+          'chargePoints.cannotChargeInParallel', 'chargePoints.sharePowerToAllConnectors', 'chargePoints.excludeFromPowerLimitation', 'chargePoints.ocppParamForPowerLimitation',
+          'chargePoints.power', 'chargePoints.efficiency', 'chargePoints.connectorIDs'
         ]
       },
       {
@@ -2497,12 +2498,12 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
         attributes: [
           'id', 'issuer', 'public', 'siteAreaID', 'lastSeen', 'inactive', 'forceInactive', 'manualConfiguration', 'voltage', 'coordinates', 'chargingStationURL',
           'forceInactive', 'tariffID', 'maximumPower', 'masterSlave',
-          'chargePoints.chargePointID','chargePoints.currentType','chargePoints.voltage','chargePoints.amperage','chargePoints.numberOfConnectedPhase',
-          'chargePoints.cannotChargeInParallel','chargePoints.sharePowerToAllConnectors','chargePoints.excludeFromPowerLimitation','chargePoints.ocppParamForPowerLimitation',
-          'chargePoints.power','chargePoints.efficiency','chargePoints.connectorIDs',
+          'chargePoints.chargePointID', 'chargePoints.currentType', 'chargePoints.voltage', 'chargePoints.amperage', 'chargePoints.numberOfConnectedPhase',
+          'chargePoints.cannotChargeInParallel', 'chargePoints.sharePowerToAllConnectors', 'chargePoints.excludeFromPowerLimitation', 'chargePoints.ocppParamForPowerLimitation',
+          'chargePoints.power', 'chargePoints.efficiency', 'chargePoints.connectorIDs',
           'connectors.status', 'connectors.type', 'connectors.power', 'connectors.errorCode', 'connectors.connectorId', 'connectors.currentTotalConsumptionWh',
           'connectors.currentInstantWatts', 'connectors.currentStateOfCharge', 'connectors.info', 'connectors.vendorErrorCode', 'connectors.currentTransactionID',
-          'connectors.currentTotalInactivitySecs', 'connectors.phaseAssignmentToGrid', 'connectors.chargePointID', 'connectors.tariffID','connectors.currentTransactionDate', 'connectors.currentTagID',
+          'connectors.currentTotalInactivitySecs', 'connectors.phaseAssignmentToGrid', 'connectors.chargePointID', 'connectors.tariffID', 'connectors.currentTransactionDate', 'connectors.currentTagID',
           'ocpiData.evses.capabilities',
           'siteArea', 'site', 'siteID',
         ]
@@ -2510,7 +2511,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
       {
         resource: Entity.CHARGING_STATION,
         action: [Action.UPDATE, Action.EXPORT, Action.EXPORT_OCPP_PARAMS, Action.GENERATE_QR, Action.UPDATE_OCPP_PARAMS, Action.LIMIT_POWER,
-          Action.DELETE_CHARGING_PROFILE, Action.GET_OCPP_PARAMS, Action.UPDATE_CHARGING_PROFILE, Action.MAINTAIN_PRICING_DEFINITIONS],
+        Action.DELETE_CHARGING_PROFILE, Action.GET_OCPP_PARAMS, Action.UPDATE_CHARGING_PROFILE, Action.MAINTAIN_PRICING_DEFINITIONS],
         condition: {
           Fn: 'custom:dynamicAuthorizations',
           args: {
@@ -2521,9 +2522,9 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
       },
       {
         resource: Entity.CHARGING_STATION, action: [Action.RESET, Action.CLEAR_CACHE, Action.DELETE, Action.GET_CONFIGURATION,
-          Action.CHANGE_CONFIGURATION, Action.SET_CHARGING_PROFILE, Action.GET_COMPOSITE_SCHEDULE,
-          Action.CLEAR_CHARGING_PROFILE, Action.GET_DIAGNOSTICS, Action.UPDATE_FIRMWARE, Action.REMOTE_STOP_TRANSACTION,
-          Action.STOP_TRANSACTION, Action.CHANGE_AVAILABILITY],
+        Action.CHANGE_CONFIGURATION, Action.SET_CHARGING_PROFILE, Action.GET_COMPOSITE_SCHEDULE,
+        Action.CLEAR_CHARGING_PROFILE, Action.GET_DIAGNOSTICS, Action.UPDATE_FIRMWARE, Action.REMOTE_STOP_TRANSACTION,
+        Action.STOP_TRANSACTION, Action.CHANGE_AVAILABILITY],
         condition: {
           Fn: 'custom:dynamicAuthorizations',
           args: {
@@ -2604,7 +2605,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
         attributes: [
           'id', 'chargingStationID', 'chargePointID', 'connectorID',
           'chargingStation.id', 'chargingStation.siteID', 'chargingStation.siteAreaID',
-          'chargingStation.siteArea.id', 'chargingStation.siteArea.name', 'chargingStation.siteArea.maximumPower','chargingStation.siteArea.siteID',
+          'chargingStation.siteArea.id', 'chargingStation.siteArea.name', 'chargingStation.siteArea.maximumPower', 'chargingStation.siteArea.siteID',
           'profile.chargingProfileKind', 'profile.chargingProfilePurpose', 'profile.stackLevel', 'profile.chargingSchedule'
         ]
       },
@@ -2999,7 +3000,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
           Fn: 'custom:dynamicAuthorizations',
           args: {
             asserts: [],
-            filters: ['SitesAdmin', 'LocalIssuer']
+            filters: ['OwnUser', 'LocalIssuer']
           }
         }
       },
@@ -3009,7 +3010,7 @@ export const AUTHORIZATION_DEFINITION: AuthorizationDefinition = {
           Fn: 'custom:dynamicAuthorizations',
           args: {
             asserts: ['UserMandatory'],
-            filters: ['SitesAdmin', 'LocalIssuer']
+            filters: ['OwnUser', 'LocalIssuer']
           }
         }
       },
